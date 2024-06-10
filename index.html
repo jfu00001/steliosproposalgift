@@ -1,10 +1,11 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="css.css" type="text/css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
-        <script type="text/javascript" src="js.js"></script>
-    </head>
+  <head>
+    <link rel="stylesheet" href="css.css" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
+    <script type="text/javascript" src="js.js"></script>
+  </head>
   <body>
     <div class="bg"></div>
     <section class="svg-wrapper">
@@ -123,8 +124,27 @@
         </g>
       </svg>
     </section>
-    
-    <iframe id="pdf" src="https://docs.google.com/viewer?url=https://jfu00001.github.io/steliosproposalgift/ticketConfirmation.pdf&embedded=true" style="border: none;"></iframe>
 
+    <div id="adobe-dc-view" style="display: none;"></div>
+    <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
+    <script type="text/javascript">
+      document.addEventListener("adobe_dc_view_sdk.ready", function () {
+        var adobeDCView = new AdobeDC.View({
+          clientId: "eb6193760b71432daea9f56d00dff0e7",
+          divId: "adobe-dc-view",
+        });
+        adobeDCView.previewFile(
+          {
+            content: {
+              location: {
+                url: "https://jfu00001.github.io/steliosproposalgift/ticketConfirmation.pdf",
+              },
+            },
+            metaData: { fileName: "ticketConfirmation.pdf" },
+          },
+          {}
+        );
+      });
+    </script>
   </body>
 </html>

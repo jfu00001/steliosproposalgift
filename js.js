@@ -111,24 +111,9 @@ jQuery(function ($) {
 
           $(".bg").hide();
           $(".svg-wrapper").hide();
-          $("#pdf").show();
+          $("#adobe-dc-view").show();
         },
       });
     }
   }
 });
-
-function reloadIFrame() {
-  var iframe = document.getElementById("pdf");
-    if(iframe.contentDocument.URL == "about:blank"){
-      iframe.src =  iframe.src;
-    }
-  }
-  var timerId = setInterval("reloadIFrame();", 300);
-  
-  $( document ).ready(function() {
-      $('#menuiFrame').on('load', function() {
-          clearInterval(timerId);
-          console.log("Finally Loaded"); //work control
-      });
-  });
