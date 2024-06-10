@@ -111,7 +111,7 @@ jQuery(function ($) {
 
           $(".bg").hide();
           $(".svg-wrapper").hide();
-          $("#viewerjs_preview").show();
+          $("#pdf").show();
         },
       });
     }
