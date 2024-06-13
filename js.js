@@ -109,9 +109,9 @@ jQuery(function ($) {
           var elem = this.targets()[0];
           gsap.set(elem, { x: 0, y: 0, autoAlpha: 0 });
 
-          // $(".bg").hide();
-          // $(".svg-wrapper").hide();
-          // $("#adobe-dc-view").show();
+          $(".bg").hide();
+          $(".svg-wrapper").hide();
+          $("#adobe-dc-view").show();
         },
       });
     }
