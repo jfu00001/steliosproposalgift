@@ -15,7 +15,7 @@ jQuery(function ($) {
     }
   });
 
-  gsap.set("g.surprise-gift .confetti", { opacity: 0 });
+  gsap.set("g.surprise-gift .confetti", { autoAlpha: 0 });
   for (i = 0; i < $("g.surprise-gift .confetti rect").length; i++) {
     var confetto = $("g.surprise-gift .confetti rect")[i];
     var randX = Math.random() * 6 * 100;
@@ -58,15 +58,15 @@ jQuery(function ($) {
   });
   surpriseTL.to("g.surprise-gift .lid-cast-shadow", {
     scaleY: 2,
-    opacity: 0,
+    autoAlpha: 0,
     duration: 0.25,
     delay: -0.4,
     ease: "expo.in",
   });
-  surpriseTL.set("g.surprise-gift .confetti rect", { opacity: 1 }, "<0.15");
+  surpriseTL.set("g.surprise-gift .confetti rect", { autoAlpha: 1 }, "<0.15");
   surpriseTL.set(
     "g.surprise-gift .confetti",
-    { opacity: 1, onComplete: sprinkleConfetti },
+    { autoAlpha: 1, onComplete: sprinkleConfetti },
     "<0"
   );
   surpriseTL.to("g.surprise-gift .lid", {
@@ -78,7 +78,7 @@ jQuery(function ($) {
   });
   surpriseTL.to("g.surprise-gift .lid-cast-shadow", {
     scaleY: 1,
-    opacity: 1,
+    autoAlpha: 1,
     duration: 0.5,
     delay: -0.5,
     ease: "bounce.out",
@@ -102,16 +102,16 @@ jQuery(function ($) {
       });
       confettoTL.to(confetto, {
         y: 60,
-        opacity: 1,
+        autoAlpha: 1,
         duration: downTime,
         ease: "linear",
         onComplete: function () {
           var elem = this.targets()[0];
-          gsap.set(elem, { x: 0, y: 0, opacity: 0 });
+          gsap.set(elem, { x: 0, y: 0, autoAlpha: 0 });
 
-          $(".bg").hide();
-          $(".svg-wrapper").hide();
-          $("#adobe-dc-view").show();
+          // $(".bg").hide();
+          // $(".svg-wrapper").hide();
+          // $("#adobe-dc-view").show();
         },
       });
     }
