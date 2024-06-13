@@ -1,56 +1,87 @@
 body {
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  color: #ffffff;
-  background-color: #ed839a;
+  background-color: blanchedalmond;
 }
-
-.svg-wrapper {
-  height: 100vh;
-}
-
-.svg-wrapper svg {
-  display: block;
-  width: auto;
-  height: 100vh;
-  margin: auto;
-}
-
-@media only screen and (max-width: 47.98em) {
-  .svg-wrapper svg {
-    max-width: 100vw;
-  }
-}
-
-g.surprise-gift {
-  filter: url("#product-dropshadow");
-}
-
-.bg {
-  position: absolute;
-  top: 0;
-  left: 0;
+.gift-animation {
   width: 100vw;
   height: 100vh;
-  background-color: #ff9f43;
-  z-index: -1;
-  opacity: 0;
+}
+.giftbox {
+  position: relative;
+  padding-top: 85%;
+
+  .giftbox__top {
+    position: relative;
+    text-align: center;
+    z-index: 3;
+    animation: slideToggle 2.2s cubic-bezier(0.3, 0, 0.9, 1.4) infinite both;
+  }
+
+  .giftbox__middle {
+    text-align: center;
+    position: absolute;
+    top: 83%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    animation: couponshake 2.2s cubic-bezier(0.3, 0, 0.9, 1.4) infinite both;
+  }
+
+  .giftbox__bottom {
+    text-align: center;
+    margin-top: -5px;
+    position: relative;
+    z-index: 2;
+  }
 }
 
-.bg.gift-open {
-  animation: fadeOut 3.5s ease-out forwards;
-}
-
-@keyframes fadeOut {
+@keyframes slideToggle {
   0% {
-    opacity: 1;
+    transform: translateY(0);
   }
-  100% {
-    opacity: 0;
+  15% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-210px);
+  }
+  80% {
+    transform: translateY(-210px);
+  }
+  90% {
+    transform: translateY(0);
   }
 }
 
-.svg {
-  padding-top: 20vh;
+@keyframes couponshake {
+  0% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-230px);
+  }
+  45% {
+    transform: translateY(-230px);
+    left: 0;
+  }
+  55% {
+    left: -10px;
+  }
+  60% {
+    left: 10px;
+  }
+  65% {
+    left: -10px;
+  }
+  70% {
+    left: 10px;
+  }
+  75% {
+    left: 0;
+  }
+  78% {
+    transform: translateY(-230px);
+  }
+  90% {
+    transform: translateY(0);
+  }
 }
